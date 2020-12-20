@@ -178,5 +178,136 @@ public class Arrays {
         return arr;
     }
 
+    // Sorting
+    int findMissingNumber(int[] arr) {
+        java.util.Arrays.sort(arr);
+
+        for (int i = 0; i < arr.length - 1; i++) {
+            // if(arr[i] == arr[i+1]-1) continue;
+            // return i+1;
+            if (arr[i] != arr[i + 1] - 1) return i + 1;
+        }
+        return -1;
+    }
+
+    // O(N)
+    int findMissingNumber2(int[] arr) {
+
+        int n = arr.length;
+        int expectedSum = 0;
+        int actualSum = 0;
+
+        for (int i = 1; i <= n; i++) {
+            expectedSum = expectedSum + i;
+        }
+
+        for (int i = 0; i < n; i++) {
+            actualSum = actualSum + arr[i];
+        }
+
+        return expectedSum - actualSum;
+    }
+
+    // sum of natural numbers
+    int findMissingNumber3(int[] arr) {
+
+        int n = arr.length;
+
+        int expectedSum = (n * (n + 1)) / 2;
+        int actualSum = 0;
+
+        for (int i = 0; i < n; i++) {
+            actualSum = actualSum + arr[i];
+        }
+
+        return expectedSum - actualSum;
+    }
+
+    void answerQueries(int[] arr, int[] start, int[] end) {
+        int q = start.length;
+
+        for (int i = 0; i < q; q++) {
+            int startIndex = start[i];
+            int endIndex = end[i];
+
+            int sum = 0;
+            for (int j = startIndex; j <= endIndex; j++) {
+                sum = sum + arr[j];
+            }
+
+            System.out.println(sum);
+        }
+    }
+
+    /*
+        Time : O(Q+N)
+        Space: O(N)
+     */
+
+    void answerQueries2(int[] arr, int[] start, int[] end) {
+        int n = arr.length;
+        int q = start.length;
+
+        int[] cumSum = new int[n];
+
+        for (int i = 1; i < n; i++) {
+            cumSum[i] = cumSum[i] + cumSum[i - 1];
+        }
+
+        for (int i = 0; i < q; i++) {
+            int sIndex = start[i];
+            int eIndex = end[i];
+
+            if (sIndex == 0) {
+                System.out.println(cumSum[eIndex]);
+            } else {
+                int sum = cumSum[eIndex] - cumSum[sIndex - 1];
+                System.out.println(sum);
+            }
+        }
+    }
+
+    /*
+     * Time : O(Q+N)
+     * Space: O(1)
+     */
+    void answerQueries3(int[] arr, int[] start, int[] end) {
+        int n = arr.length;
+        int q = start.length;
+
+        for (int i = 1; i < n; i++) {
+            arr[i] = arr[i] + arr[i - 1];
+        }
+
+        for (int i = 0; i < q; i++) {
+            int sIndex = start[i];
+            int eIndex = end[i];
+
+            if (sIndex == 0) {
+                System.out.println(arr[eIndex]);
+            } else {
+                int sum = arr[eIndex] - arr[sIndex - 1];
+                System.out.println(sum);
+            }
+        }
+    }
+
+    // space O(1)
+    // Time O(N)
+    static int removeDuplicates(int[] arr) {
+        if (arr.length == 0) return 0;
+        int n = arr.length;
+        int p1 = 0, p2 = 1;
+
+        while (p1 < n - 1 && p2 < n) {
+            if (arr[p1] == arr[p2]) p2++;
+            else {
+                arr[p1 + 1] = arr[p2];
+                p1++;
+            }
+        }
+
+        return p1 + 1;
+    }
 
 }
