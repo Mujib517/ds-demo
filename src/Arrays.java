@@ -310,4 +310,12 @@ public class Arrays {
         return p1 + 1;
     }
 
+    //Best, Avg Case, Worst
+    // Omega best
+    // theta avg
+    // worst oh
+    // arr = [10,89,-1,22,50]
+    // k = 10
+    // Binary search: O(LogN)
+    // sorted arrays
 }

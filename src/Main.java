@@ -1,12 +1,8 @@
 public class Main {
     public static void main(String[] args) {
-        int[] arr = new int[]{};
+        int[] arr = new int[]{1, 2, 2, 2, 3, 5, 6, 7, 10};
 
-
-        int res = Arrays.removeDuplicates(arr);
-
-        for (int i = 0; i < res; i++) {
-            System.out.print(arr[i] + " ");
-        }
+        int res = BinSearch.frequency(arr, 3);
+        System.out.println(res);
     }
 }
