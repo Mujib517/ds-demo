@@ -59,4 +59,42 @@ public class Hashing {
 
         return true;
     }
+
+    public static void pairSum(int[] arr, int k) {
+        HashSet<Integer> hash = new HashSet<>();
+
+        for (int i = 0; i < arr.length; i++) {
+            int x = arr[i];
+            int y = k - x;
+
+            if (hash.contains(y)) {
+                System.out.println(x + " " + y);
+                return;
+            }
+            hash.add(x);
+        }
+    }
+
+    public static void getFrequency(int[] arr) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < arr.length; i++) {
+            if (!map.containsKey(arr[i])) {
+                map.put(arr[i], 1);
+            } else {
+                int val = map.get(arr[i]);
+                map.put(arr[i], ++val);
+            }
+        }
+
+        print(map);
+    }
+
+    private static void print(HashMap<Integer, Integer> map) {
+        // for each loop
+        // iterator
+        for (Integer key : map.keySet()) {
+            System.out.println(key + ":" + map.get(key));
+        }
+    }
 }
