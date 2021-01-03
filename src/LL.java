@@ -1,8 +1,8 @@
 public class LL {
     //readonly
     private int count = 0;
-    Node head = null;
-    Node tail = null;
+    private Node head = null;
+    private Node tail = null;
 
     // O(1)
     public void add(int x) {
@@ -34,10 +34,8 @@ public class LL {
     }
 
     public void print() {
-        Node temp = head;
-        while (temp != null) {
+        for (Node temp = head; temp != null; temp = temp.next) {
             System.out.print(temp.val + " ");
-            temp = temp.next;
         }
     }
 

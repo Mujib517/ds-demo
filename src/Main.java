@@ -2,20 +2,22 @@ import java.util.HashSet;
 
 public class Main {
     public static void main(String[] args) {
-        LL list = new LL();
-        list.add(10);
-        list.add(20);
-        list.add(30);
-        list.add(50);
-        list.addToHead(5);
-        list.addToHead(1);
-        list.add(60);
-        System.out.println(list.size());
+        Node n1 = new Node(10);
+        Node n2 = new Node(20);
+        Node n3 = new Node(30);
+        Node n4 = new Node(40);
+        Node n5 = new Node(50);
 
-        list.print();
+        n1.next = n2;
+        n2.next = n3;
+        n3.next = n4;
+        n4.next = n5;
 
-        System.out.println(list.contains(50));
-        System.out.println(list.contains(100));
+        Node res = LLProblems.remove(n1);
 
+        while (res != null) {
+            System.out.print(res.val + " ");
+            res = res.next;
+        }
     }
 }
