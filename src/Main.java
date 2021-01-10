@@ -1,7 +1,9 @@
+import java.util.Arrays;
 import java.util.HashSet;
 
 public class Main {
     public static void main(String[] args) {
+
         int[] arr = new int[]{10, 20, 30, 40, 50, 60};
         int res = BinSearch.binSearch(arr, 35);
         System.out.println(res);
