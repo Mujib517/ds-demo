@@ -2,6 +2,10 @@ import java.util.HashSet;
 
 public class Main {
     public static void main(String[] args) {
+        int[] arr = new int[]{10, 20, 30, 40, 50, 60};
+        int res = BinSearch.binSearch(arr, 35);
+        System.out.println(res);
+
         Node n1 = new Node(10);
         Node n2 = new Node(20);
         Node n3 = new Node(30);
@@ -14,11 +18,10 @@ public class Main {
         n3.next = n4;
         n4.next = n5;
         n5.next = n2;
-//        n5.next = n6;
+        n5.next = n6;
 
 
-        boolean res = LLProblems.hasCycle(n1);
-        System.out.println(res);
+//        Recursion.printListRec2(n1);
 
 //        Node res = n1;
 //        while (res != null) {
@@ -26,4 +29,5 @@ public class Main {
 //            res = res.next;
 //        }
     }
+
 }

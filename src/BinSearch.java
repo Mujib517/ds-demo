@@ -14,6 +14,45 @@ public class BinSearch {
         return -1;
     }
 
+    /*
+        base condition: T(1) = 1
+     T(N) = 1 + T(N/2)
+
+     T(N) = 1 + (1+ T(N/4))
+ 	  = 2 + T(N/4)
+ 	  = 2 + (1+T(N/8))
+ 	  = 3 + T(N/8)
+ 	  = 3 + T(N/2^3)
+ 	  	...
+ 	  =	k + T(N/2^k)
+
+ 	  	N/2^k = 1
+
+ 	  	N = 2^k
+
+ 	  	K = LogN
+
+ 	  	= LogN + T(N/2^LogN)
+ 	  	= LogN + T(1)
+ 	  	= LogN
+ 	  	O(LogN)
+     */
+    public static int binSearchRec(int[] arr, int k) {
+        return binSearchUtil(arr, k, 0, arr.length - 1);
+    }
+
+    private static int binSearchUtil(int[] arr, int k, int low, int high) {
+
+        if (low > high) return -1;
+
+        int mid = (low + high) / 2;
+        if (arr[mid] == k) return mid;
+        if (arr[mid] > k) high = mid - 1;
+        else low = mid + 1;
+
+        return binSearchUtil(arr, k, low, high);
+    }
+
     public static void pairSum(int[] arr, int k) {
         int p1 = 0, p2 = arr.length - 1;
 
