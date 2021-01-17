@@ -13,16 +13,21 @@ public class MyStack {
     // O(1)
     public void push(int x) {
         if (count == arr.length) allocateSpace();
-        arr[count] = x;
-        ++count;
+        arr[count++] = x;
+
+//        arr[count] = x;
+//        count = count + 1;
     }
 
     // O(1)
     public int pop() {
         if (isEmpty()) throw new EmptyStackException();
         if (count * 2 < arr.length) deallocateSpace();
-        count--;
-        return arr[count];
+
+        // count = count-1;
+        //return  arr[count];
+
+        return arr[--count];
     }
 
     // O(1)
@@ -38,7 +43,7 @@ public class MyStack {
     // O(1)
     public int peek() {
         if (isEmpty()) throw new EmptyStackException();
-        return arr[count -1];
+        return arr[count - 1];
     }
 
     private void allocateSpace() {
