@@ -1,3 +1,4 @@
+import apple.laf.JRSUIUtils;
 import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 
 import java.util.LinkedList;
@@ -5,24 +6,15 @@ import java.util.Queue;
 
 public class Main {
     public static void main(String[] args) {
-        Q2 q = new Q2();
-        q.add(1);
-        q.add(2);
-        q.add(3);
-        System.out.println(q.poll());
+        int[] arr = new int[]{5, 3, 2, 4, 1, 7, 6, 8};
 
-        q.add(4);
-        q.add(5);
-        q.add(6);
+        TNode result = TreeProblems.buildBST(arr);
 
-        q.poll();
-        q.poll();
-        q.poll();
-        q.poll();
-        q.poll();
+//        TNode res = TreeProblems.insertRec(result, 30);
 
+        TreeProblems.postOrder(result);
 
-        System.out.println(q.peek());
+//        System.out.println(TreeProblems.findMax(result));
     }
 
 }
