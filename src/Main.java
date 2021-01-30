@@ -1,30 +1,22 @@
 import apple.laf.JRSUIUtils;
 import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 
+import java.util.Collections;
 import java.util.LinkedList;
+import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class Main {
     public static void main(String[] args) {
-//        int[] arr = new int[]{5, 3, 2, 4, 1, 7, 6, 8};
-//
-//
-//        TNode result = TreeProblems.buildBST(arr);
+        int[] arr = new int[]{8, 18, 4, 5, 15, 10, 11, 20};
 
-        TNode root = new TNode(10);
-        TNode l1 = new TNode(8);
-        TNode l2 = new TNode(5);
-        TNode l3 = new TNode(11);
-        TNode r1 = new TNode(20);
+        PriorityQueue<Integer> heap = new PriorityQueue();
 
+        for (int i = 0; i < arr.length; i++) {
+            heap.add(arr[i]);
+        }
 
-        l1.left = l2;
-        l1.right = l3;
-        root.left = l1;
-        root.right = r1;
-
-
-        System.out.println(TreeProblems.isBST(root));
+        while (!heap.isEmpty()) System.out.println(heap.poll());
     }
 
 }
